@@ -17,7 +17,7 @@ class MyModelType(DeclEnum):
 mymodels = Table(
     'mymodels',
     metadata,
-    Column('guid', Unicode(64), primary_key=True, default=GUIDFactory('ST')),
+    Column('guid', Unicode(64), primary_key=True, default=GUIDFactory('MD')),
     Column(
         'type',
         MyModelType.db_type(),
