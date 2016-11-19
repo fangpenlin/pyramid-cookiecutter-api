@@ -1,6 +1,8 @@
 machine:
   python:
     version: 3.5.2
+  services:
+    - postgresql
 dependencies:
   cache_directories:
     - /home/ubuntu/.cache/pip/
@@ -10,5 +12,7 @@ dependencies:
     - 'pip install cookiecutter'
 
 test:
-  override:
+  pre:
     - 'cookiecutter --no-input .'
+  override:
+    - 'cd pyramid_api && .env/bin/py.test -svvv'
