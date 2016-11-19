@@ -1,0 +1,24 @@
+-   repo: git@github.com:pre-commit/pre-commit-hooks
+    sha: 4ef03c4223ad322c7adaa6c6c0efb26b57df3b71
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: autopep8-wrapper
+    -   id: check-docstring-first
+    -   id: check-json
+    -   id: check-yaml
+    -   id: debug-statements
+        language_version: python3.5
+    -   id: requirements-txt-fixer
+    -   id: flake8
+        language_version: python3.5
+-   repo: git@github.com:pre-commit/pre-commit
+    sha: 9ef0c06d3f458eeae233c6fa23e4057091527956
+    hooks:
+    -   id: validate_config
+    -   id: validate_manifest
+-   repo: git@github.com:asottile/reorder_python_imports
+    sha: b022734351abe44d0b05a71a4fa1175287c59b49
+    hooks:
+    -   id: reorder-python-imports
+        language_version: python3.5

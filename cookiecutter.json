@@ -1,0 +1,4 @@
+{
+    "project_name": "Pyramid Scaffold",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}"
+}
