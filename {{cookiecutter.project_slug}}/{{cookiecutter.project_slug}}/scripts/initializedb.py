@@ -1,8 +1,10 @@
 import click
 import IPython
+import transaction
 
 from . import subcommand
 from .. import models
+from ..database import tables
 
 
 @subcommand

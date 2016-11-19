@@ -16,5 +16,6 @@ def main(global_config, **settings):
 
     config.include('.models')
     config.include('.routes')
+    config.include('.renderers')
     config.scan(categories=('pyramid', ))
     return config.make_wsgi_app()
