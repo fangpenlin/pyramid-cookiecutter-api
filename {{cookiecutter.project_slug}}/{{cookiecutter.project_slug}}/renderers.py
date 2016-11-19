@@ -1,4 +1,5 @@
 import calendar
+import datetime
 import sys
 
 import venusian
@@ -27,10 +28,15 @@ def enum_symbol(enum_value):
     return str(enum_value).lower()
 
 
+@jsonify(datetime.datetime)
+def datetime_adapter(dt, request):
+    return dt.isoformat()
+
+
 @jsonify(models.MyModel)
 def mymodel_adapter(mymodel, request):
     return dict(
-        guid=mymodel.guid,
+        id=mymodel.guid,
         type=enum_symbol(mymodel.type),
         updated_at=mymodel.updated_at,
         created_at=mymodel.created_at,

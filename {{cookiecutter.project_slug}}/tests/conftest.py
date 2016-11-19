@@ -9,14 +9,19 @@ from {{ cookiecutter.project_slug }} import models
 from {{ cookiecutter.project_slug }}.database import tables
 
 
-@pytest.yield_fixture
-def db_engine():
+@pytest.fixture
+def app_settings():
     db_url = os.environ.get(
         'TEST_DB', 'postgres://{{ cookiecutter.project_slug }}:{{ cookiecutter.project_slug }}@localhost/{{ cookiecutter.project_slug }}_test'
     )
-    engine = models.get_engine({
-        'sqlalchemy.url': db_url
-    })
+    return {
+        'sqlalchemy.url': db_url,
+    }
+
+
+@pytest.yield_fixture
+def db_engine(app_settings):
+    engine = models.get_engine(app_settings)
     if bool(os.environ.get('DB_ECHO', 0)):
         engine.echo = True
     return engine
