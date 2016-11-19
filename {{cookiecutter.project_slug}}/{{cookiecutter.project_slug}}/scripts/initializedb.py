@@ -1,6 +1,5 @@
 import click
 import IPython
-from sqlalchemy.orm import scoped_session
 
 from . import subcommand
 from .. import models
