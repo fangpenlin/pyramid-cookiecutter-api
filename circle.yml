@@ -19,6 +19,7 @@ test:
 
 deployment:
   archive:
+    branch: master
     commands:
       - echo $GITHUB_DEPLOY_ID_RSA > ~/.ssh/github_deploy_id_rsa
       - chmod 400 ~/.ssh/github_deploy_id_rsa
