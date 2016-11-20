@@ -10,17 +10,18 @@ dependencies:
     - 'pip install -U pip'
     - 'pip install wheel'
     - 'pip install cookiecutter'
+    - 'pip install flake8'
 
 test:
   pre:
     - 'cookiecutter --no-input .'
   override:
     - 'cd pyramid_api && .env/bin/py.test -svvv'
+    - 'cd pyramid_api && flake8 pyramid_api --ignore=E501,W293'
 
 deployment:
   archive:
     branch: master
     commands:
       - echo $GITHUB_DEPLOY_ID_RSA > ~/.ssh/github_deploy_id_rsa
-      - chmod 400 ~/.ssh/github_deploy_id_rsa
-      - eval `ssh-agent` && ssh-add ~/.ssh/github_deploy_id_rsa && ./archive.sh
+      - GIT_SSH_COMMAND="ssh -i ~/.ssh/github_deploy_id_rsa" ./archive.sh
