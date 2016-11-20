@@ -3,6 +3,9 @@ machine:
     version: 3.5.2
   services:
     - postgresql
+  environment:
+    TEST_DB: postgres://ubuntu:@127.0.0.1/{{ cookiecutter.project_slug }}
+
 dependencies:
   cache_directories:
     - /home/ubuntu/.cache/pip/
@@ -11,8 +14,10 @@ dependencies:
     - 'pip install wheel'
     - 'pip install flake8'
     - 'pip install -e.[tests]'
+  post:
+    - "psql -c 'CREATE DATABASE {{ cookiecutter.project_slug }};' -U ubuntu"
 
 test:
   override:
     - 'py.test -svvv'
-    - 'flake8 pyramid_api --ignore=E501,W293 --enable-extensions=H301,H306'
+    - 'flake8 {{ cookiecutter.project_slug }} --ignore=E501,W293 --enable-extensions=H301,H306'
