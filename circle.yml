@@ -17,13 +17,13 @@ test:
     - 'cookiecutter --no-input .'
   override:
     - 'cd pyramid_api && .env/bin/py.test -svvv'
-    - 'cd pyramid_api && flake8 pyramid_api --ignore=E501,W293'
+    - 'cd pyramid_api && flake8 pyramid_api --ignore=E501,W293 --enable-extensions=H301,H306'
 
 deployment:
   archive:
     branch: master
     commands:
-      - echo $GITHUB_DEPLOY_ID_RSA > github_deploy_id_rsa
+      - echo $GITHUB_DEPLOY_ID_RSA | base64 -d > github_deploy_id_rsa
       - chmod 400 github_deploy_id_rsa
       - git config --global user.name "Fang-Pen Lin"
       - git config --global user.email "hello@fangpenlin.com"
