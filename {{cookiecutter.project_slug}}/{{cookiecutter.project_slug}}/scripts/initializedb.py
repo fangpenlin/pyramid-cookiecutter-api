@@ -1,5 +1,4 @@
 import click
-import IPython
 import transaction
 
 from . import subcommand
@@ -21,4 +20,5 @@ def cli(ctx):
             models.get_session_factory(engine),
             transaction.manager,
         )
+        dbsession.add(models.MyModel.create(type=models.MyModel.types.TYPE1))
         # TODO: add seed data here

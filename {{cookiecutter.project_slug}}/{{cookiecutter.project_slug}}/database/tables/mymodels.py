@@ -1,7 +1,6 @@
 from sqlalchemy import Column
 from sqlalchemy import Table
 from sqlalchemy import Unicode
-from sqlalchemy.schema import ForeignKey
 
 from . import metadata
 from ..enum import DeclEnum
