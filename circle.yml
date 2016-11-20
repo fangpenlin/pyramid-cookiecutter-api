@@ -27,4 +27,4 @@ deployment:
       - chmod 400 github_deploy_id_rsa
       - git config --global user.name "Fang-Pen Lin"
       - git config --global user.email "hello@fangpenlin.com"
-      - GIT_SSH_COMMAND="ssh -i github_deploy_id_rsa" ./archive.sh
+      - GIT_SSH_COMMAND="ssh -i github_deploy_id_rsa" cd pyramid_api && ../archive.sh
