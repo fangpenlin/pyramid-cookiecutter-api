@@ -1,5 +1,5 @@
 -   repo: git@github.com:pre-commit/pre-commit-hooks
-    sha: 4ef03c4223ad322c7adaa6c6c0efb26b57df3b71
+    sha: 7539d8bd1a00a3c1bfd34cdb606d3a6372e83469
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
@@ -13,7 +13,7 @@
     -   id: flake8
         language_version: python3.5
 -   repo: git@github.com:pre-commit/pre-commit
-    sha: 9ef0c06d3f458eeae233c6fa23e4057091527956
+    sha: 1adfa2412489a206215881b7d3dd6e38077fd08b
     hooks:
     -   id: validate_config
     -   id: validate_manifest
