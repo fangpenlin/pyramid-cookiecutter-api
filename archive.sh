@@ -1,5 +1,5 @@
 git init
-git remote add origin git@github.com:victorlin/pyramid_api.git
+git remote add origin git@github.com:victorlin/pyramid-api.git
 git fetch
 git branch -t master origin/master
 git add --all
