@@ -1,4 +1,6 @@
 {
     "project_name": "Pyramid API",
-    "project_slug": "{{ cookiecutter.project_name | lower | replace(' ', '_') }}"
+    "project_slug": "{{ cookiecutter.project_name | lower | replace(' ', '_') }}",
+    "db_url": "postgres://{{ cookiecutter.project_slug }}:{{ cookiecutter.project_slug }}@localhost/{{ cookiecutter.project_slug }}",
+    "test_db_url": "postgres://{{ cookiecutter.project_slug }}:{{ cookiecutter.project_slug }}@localhost/{{ cookiecutter.project_slug }}_test"
 }

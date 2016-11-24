@@ -11,9 +11,7 @@ from {{ cookiecutter.project_slug }}.database import tables
 
 @pytest.fixture
 def app_settings():
-    db_url = os.environ.get(
-        'TEST_DB', 'postgres://{{ cookiecutter.project_slug }}:{{ cookiecutter.project_slug }}@localhost/{{ cookiecutter.project_slug }}_test'
-    )
+    db_url = os.environ.get('TEST_DB', '{{ cookiecutter.test_db_url }}')
     return {
         'sqlalchemy.url': db_url,
     }

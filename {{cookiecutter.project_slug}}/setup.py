@@ -7,9 +7,9 @@ requires = [
     'pyramid',
     'pyramid_jinja2',
     'pyramid_debugtoolbar',
-    'pyramid_tm',
+    'pyramid_tm>=1.1.1,<2.0',
+    'transaction>=2.0,<2.1',
     'SQLAlchemy',
-    'transaction>=1.6,<1.7',
     'zope.sqlalchemy',
     'waitress',
     'base58',
@@ -17,6 +17,7 @@ requires = [
     'requests',
     'click',
     'ipython',
+    'psycopg2',
 ]
 
 tests_require = [

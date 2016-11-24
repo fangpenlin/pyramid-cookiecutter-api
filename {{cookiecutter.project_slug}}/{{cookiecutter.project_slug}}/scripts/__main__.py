@@ -11,6 +11,7 @@ from pyramid.paster import setup_logging
 
 import {{ cookiecutter.project_slug }}
 from {{ cookiecutter.project_slug }} import scripts
+from {{ cookiecutter.project_slug }}.settings import default_settings
 
 
 LOG_MAPPING = {
@@ -85,7 +86,7 @@ def cli(ctx, log_level, conf_file, version):
         )
     else:
         logging.basicConfig(level=LOG_MAPPING[log_level])
-    settings = {}
+    settings = default_settings.copy()
     if os.path.exists(conf_file):
         cfg_settings = get_appsettings(conf_file, name='main')
         settings.update(cfg_settings)

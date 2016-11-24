@@ -4,7 +4,7 @@ machine:
   services:
     - postgresql
   environment:
-    TEST_DB: postgres://ubuntu:@127.0.0.1/{{ cookiecutter.project_slug }}
+    TEST_DB: postgres://ubuntu:@localhost/{{ cookiecutter.project_slug }}
 
 dependencies:
   cache_directories:
